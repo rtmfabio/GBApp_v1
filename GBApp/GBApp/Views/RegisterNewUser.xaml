@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GBApp.Views.RegisterNewUser"
+             Title="Registar Novo Utilizador"
+             Padding="10,40,10,10">
+  <StackLayout>
+    <Image Source="gblogo.jpg" HorizontalOptions="Center"/>
+    <Label Text="nome"/>
+    <Entry x:Name="nome" Keyboard="Text" Text=""></Entry>
+    <Label Text="sobrenome"/>
+    <Entry x:Name="sobrenome" Keyboard="Text" Text=""></Entry>
+    <Label Text="email"/>
+    <Entry x:Name="email" Keyboard="Email" Text=""></Entry>
+    <Label Text="telefone"/>
+    <Entry x:Name="telefone" Keyboard="Telephone" Text=""></Entry>
+    <Label Text="Password"/>
+    <Entry x:Name="password" Keyboard="Text" IsPassword="True"></Entry>
+
+    <Button Clicked="RegisterUser" CommandParameter="{Binding .}" Text="Registar"/>
+
+  </StackLayout>
+</ContentPage>

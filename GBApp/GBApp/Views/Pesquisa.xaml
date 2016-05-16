@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GBApp.Views.Pesquisa"  
+             xmlns:local="clr-namespace:GBApp.Components"
+             Title="Pesquisa"
+             Padding="10,40,10,10"
+             BackgroundColor="Transparent">
+  <ScrollView>
+  <StackLayout>
+    <Label Text="Pesquisa" HorizontalOptions="Center"/>
+    
+    <Label Text="Categoria"/>   
+    <local:BindablePicker x:Name="categorias" ItemsSource="{Binding Lista_categorias, Mode=TwoWay}" />
+    
+    <Label x:Name="categoria" Text="{Binding SelectedCategoria}"/>
+    <Label Text="SubCategoria"/>
+    
+    <local:BindablePicker x:Name="subcategorias" ItemsSource="{Binding Lista_sub_categorias, Mode=TwoWay}" />
+    <Label x:Name="subcategoria" Text="{Binding SelectedSubCategoria}"/>
+    <Label Text="Raio"/>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>        
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="5*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Label Text="1" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"/>
+      <Slider Maximum="100" Value="{Binding Raio, Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+      <Label Text="100" Grid.Row="0" Grid.Column="2" />
+
+      <Label Text="Resultados em Mapa" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+      <Switch x:Name="mapasw" IsToggled="{Binding Map}" Grid.Row="1" Grid.Column="2"/>
+
+      <Label Text="Resultados em Lista" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+      <Switch x:Name="listsw" IsToggled="{Binding List}" Grid.Row="2" Grid.Column="2"/>
+      
+      
+    </Grid>
+
+
+    
+        <Button Clicked="OnSearchButtonClick" CommandParameter="{Binding .}" Text="Pesquisa"/>
+  </StackLayout>
+    </ScrollView>
+</ContentPage>
